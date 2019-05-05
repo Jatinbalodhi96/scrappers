@@ -4,7 +4,7 @@ import time
 
 app_url = 'https://play.google.com/store/apps/details?id=com.whatsapp&showAllReviews=true'
 jquery_path = 'jquery-3.3.1.min.js'
-next_pages_limit = 10
+next_pages_limit = 10000
 app_name = 'whatsapp'
 progress = 0
 
@@ -31,9 +31,12 @@ with open(jquery_path) as jquery:
         print(progress)
 
         '''Save data on every number of progress call.'''
-        if (i % 10 == 0):
-            with open('{0}.txt'.format(app_name), 'w', encoding='utf-8') as f:
-                f.write(user_reviews.get_attribute('innerHTML'))
+        # if (i % 10 == 0):
+        #     with open('{0}.txt'.format(app_name), 'w', encoding='utf-8') as f:
+        #         f.write(user_reviews.get_attribute('innerHTML'))
+    with open('{0}.txt'.format(app_name), 'w', encoding='utf-16') as f:
+        f.write(user_reviews.get_attribute('innerHTML'))
+
     f.close()
     driver.close()
 

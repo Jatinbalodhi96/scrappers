@@ -6,7 +6,7 @@ cols = ['username', 'date', 'rating', 'upvotes', 'comment']
 data = list()
 file_name = 'whatsapp.txt'
 
-with open(file_name, 'r', encoding='utf-8') as f:
+with open(file_name, 'r', encoding='utf-16') as f:
     html_doc = f.read()
 
 soup = BeautifulSoup(html_doc, 'html.parser')
